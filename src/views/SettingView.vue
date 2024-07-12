@@ -9,7 +9,7 @@ const allData = ref([]);
 
 const fetchData = async () => {
     try {
-        const response = await fetch('/quiz.json'); // Assuming the base URL is the root of your project
+        const response = await fetch('/quiz.json');
         if (!response.ok) {
             throw new Error('Failed to fetch quiz data');
         }
@@ -70,7 +70,7 @@ const openAnswerModal = (question) => {
                         </strong>
                         {{ answer }}
                     </div>
-                    <div v-else class="border-2 border-primary rounded-md mt-3 p-2">
+                    <div v-else class="border-2 border-neutral rounded-md mt-3 p-2">
                         <strong>
                             Answer {{ index }}:
                         </strong>

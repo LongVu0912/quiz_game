@@ -42,10 +42,15 @@ const changeTheme = (theme) => {
                 <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <li class="items-center font-bold text-xl">QUIZ</li>
                     <li class="font-medium mt-1" @click="closeDrawer">
-                        <RouterLink to="/" active-class="bg-primary">Quiz</RouterLink>
+                        <RouterLink to="/" active-class="bg-primary text-primary-content">
+                            <i class="fa-regular fa-circle-question"></i>
+                            Quiz
+                        </RouterLink>
                     </li>
                     <li class="font-medium mt-1" @click="closeDrawer">
-                        <RouterLink to="/setting" active-class="bg-primary text-primary-content">Setting
+                        <RouterLink to="/setting" active-class="bg-primary text-primary-content">
+                            <i class="fa-solid fa-gear"></i>
+                            Setting
                         </RouterLink>
                     </li>
                 </ul>

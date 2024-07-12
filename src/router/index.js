@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import QuizView from "../views/QuizView.vue";
-import SettingView from "../views/SettingView.vue"
+import SettingView from "../views/SettingView.vue";
+import PointView from "../views/PointView.vue";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,6 +15,11 @@ const router = createRouter({
             path: "/setting",
             name: "setting",
             component: SettingView,
+        },
+        {
+            path: "/point/:point",
+            name: "point",
+            component: PointView,
         },
     ],
 });
