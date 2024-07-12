@@ -165,5 +165,4 @@ const checkAnswer = () => {
             </div>
         </div>
     </div>
-
 </template>

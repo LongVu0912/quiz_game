@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
-import TheAvatar from './TheAvatar.vue';
 
 const props = defineProps({
     tableHeaders: Array,
@@ -112,11 +111,6 @@ const paginatedData = computed(() => {
                                 @click="format.click(data)">
                             {{ format.label }}
                         </button>
-                        <!-- Avatar -->
-                        <div v-else-if="format.type === 'avatar'"
-                             :class="format.objectClass">
-                            <TheAvatar :imageSrc="format.imageSrc" :name="data[format.key]" :role="format.role" />
-                        </div>
                         <!-- Custom -->
                         <div v-else-if="format.type === 'custom'">
                             <div v-if="data[format.key] == format.value" :class="format.trueClass">
