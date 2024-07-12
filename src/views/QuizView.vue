@@ -6,11 +6,13 @@ import TheLoading from '../components/TheLoading.vue';
 const timePerQuestion = 5;
 
 const isLoading = ref(true);
+const isStart = ref(false);
 const allData = ref([]);
 const currentQuestionId = ref(1);
 const timeCounter = ref(timePerQuestion);
 const showAnswer = ref(false);
 const selectedAnswerIndex = ref(null);
+const pointCounter = ref(0);
 
 let timer = null;
 
@@ -62,11 +64,24 @@ const nextQuestion = () => {
 
 onMounted(() => {
     fetchData();
-    startTimer();
+});
+
+watch(isStart, () => {
+    if (isStart.value) {
+        startTimer();
+    }
 });
 
 watch(currentQuestionId, () => {
     startTimer();
+});
+
+watch(showAnswer, () => {
+    if (showAnswer.value) {
+        if (selectedAnswerIndex.value === allData.value[currentQuestionId.value - 1]?.correctAnswer) {
+            pointCounter.value++;
+        }
+    }
 });
 
 </script>
@@ -74,6 +89,9 @@ watch(currentQuestionId, () => {
 <template>
     <TheHeader />
     <TheLoading v-if="isLoading" />
+    <div v-else-if="!isStart" class="flex flex-col items-center mt-32">
+        <button @click="isStart = true" class="btn btn-primary btn-lg" aria-label="Start Quiz">Start</button>
+    </div>
     <div v-else>
         <div class="text-center font-bold text-3xl pt-4">{{ timeCounter }}</div>
         <div class="overflow-x-auto mx-20 mt-4 rounded-md p-4">
@@ -92,13 +110,17 @@ watch(currentQuestionId, () => {
                         <strong>Answer {{ index }}:</strong> {{ answer }}
                     </div>
                 </div>
-                <div class="flex justify-end mt-4">
-                    <button @click="previousQuestion" class="btn btn-sm btn-neutral mr-2">
-                        <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                    <button @click="nextQuestion" class="btn btn-sm btn-neutral">
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                <div class="flex justify-between mt-4">
+                    <div class="font-bold text-2xl">Point: {{ pointCounter }}</div>
+                    <div class="mt-4">
+                        <button @click="previousQuestion" class="btn btn-sm btn-neutral mr-2"
+                                aria-label="Previous question">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button @click="nextQuestion" class="btn btn-sm btn-neutral" aria-label="Next question">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
             <div v-else>
@@ -106,4 +128,5 @@ watch(currentQuestionId, () => {
             </div>
         </div>
     </div>
+
 </template>
