@@ -129,7 +129,11 @@ const checkAnswer = () => {
         <button @click="isStart = true" class="btn btn-primary btn-lg" aria-label="Start Quiz">Start</button>
     </div>
     <div v-else>
-        <div class="text-center font-bold text-6xl pt-4 text-primary">{{ timeCounter }}</div>
+        <div class="flex items-center justify-center pt-4">
+            <span class="text-center countdown font-mono text-7xl text-primary">
+                <span :style="`--value:${timeCounter};`"></span>
+            </span>
+        </div>
         <div class="overflow-x-auto mx-20 mt-4 rounded-md p-4">
             <div v-if="allData.length > 0">
                 <div class="text-center font-medium text-2xl">
@@ -148,7 +152,7 @@ const checkAnswer = () => {
                 </div>
                 <div class="flex justify-between mt-6">
                     <div class="font-bold text-2xl">Point: {{ pointCounter }}</div>
-                    <button class="btn btn-success btn-md text-white" @click="checkAnswer">Check</button>
+                    <button class="btn btn-accent btn-md" @click="checkAnswer">Check</button>
                     <div>
                         <button @click="previousQuestion" class="btn btn-md btn-neutral mr-2"
                                 aria-label="Previous question">
