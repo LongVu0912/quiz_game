@@ -17,7 +17,7 @@ const router = createRouter({
             component: SettingView,
         },
         {
-            path: "/point/:point",
+            path: "/point/",
             name: "point",
             component: PointView,
         },

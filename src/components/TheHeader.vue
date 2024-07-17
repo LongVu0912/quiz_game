@@ -24,7 +24,7 @@ const changeTheme = (theme) => {
 </script>
 
 <template>
-    <div class="navbar bg-base-200">
+    <div class="navbar bg-base-100 shadow-sm">
         <div class="flex">
             <input id="my-drawer" type="checkbox" class="drawer-toggle" v-model="isDrawerOpen" />
             <div class="drawer-content">

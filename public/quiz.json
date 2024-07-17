@@ -108,5 +108,115 @@
             "4": "Pacific Ocean"
         },
         "correctAnswer": "4"
+    },
+    {
+        "id": 11,
+        "question": "What is the capital of France?",
+        "answers": {
+            "1": "Paris",
+            "2": "Berlin",
+            "3": "Madrid",
+            "4": "Rome"
+        },
+        "correctAnswer": "1"
+    },
+    {
+        "id": 12,
+        "question": "Who wrote 'Hamlet'?",
+        "answers": {
+            "1": "Charles Dickens",
+            "2": "William Shakespeare",
+            "3": "Leo Tolstoy",
+            "4": "Mark Twain"
+        },
+        "correctAnswer": "2"
+    },
+    {
+        "id": 13,
+        "question": "What is the largest planet in our solar system?",
+        "answers": {
+            "1": "Earth",
+            "2": "Saturn",
+            "3": "Jupiter",
+            "4": "Mars"
+        },
+        "correctAnswer": "3"
+    },
+    {
+        "id": 14,
+        "question": "What element does 'O' represent on the periodic table?",
+        "answers": {
+            "1": "Gold",
+            "2": "Oxygen",
+            "3": "Silver",
+            "4": "Iron"
+        },
+        "correctAnswer": "2"
+    },
+    {
+        "id": 15,
+        "question": "Who painted the Mona Lisa?",
+        "answers": {
+            "1": "Vincent Van Gogh",
+            "2": "Pablo Picasso",
+            "3": "Leonardo da Vinci",
+            "4": "Claude Monet"
+        },
+        "correctAnswer": "3"
+    },
+    {
+        "id": 16,
+        "question": "What is the hardest natural substance on Earth?",
+        "answers": {
+            "1": "Gold",
+            "2": "Iron",
+            "3": "Diamond",
+            "4": "Quartz"
+        },
+        "correctAnswer": "3"
+    },
+    {
+        "id": 17,
+        "question": "What is the chemical symbol for gold?",
+        "answers": {
+            "1": "Au",
+            "2": "Ag",
+            "3": "Fe",
+            "4": "O"
+        },
+        "correctAnswer": "1"
+    },
+    {
+        "id": 18,
+        "question": "How many continents are there?",
+        "answers": {
+            "1": "5",
+            "2": "6",
+            "3": "7",
+            "4": "8"
+        },
+        "correctAnswer": "3"
+    },
+    {
+        "id": 19,
+        "question": "What is the capital of Japan?",
+        "answers": {
+            "1": "Seoul",
+            "2": "Beijing",
+            "3": "Tokyo",
+            "4": "Bangkok"
+        },
+        "correctAnswer": "3"
+    },
+    {
+        "id": 20,
+        "question": "What is the largest ocean on Earth?",
+        "answers": {
+            "1": "Atlantic Ocean",
+            "2": "Indian Ocean",
+            "3": "Arctic Ocean",
+            "4": "Pacific Ocean"
+        },
+        "correctAnswer": "4"
     }
 ]

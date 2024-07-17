@@ -2,6 +2,7 @@
 import TheHeader from '../components/TheHeader.vue'
 import TheLoading from '../components/TheLoading.vue';
 import TheTable from '../components/TheTable.vue';
+import { toastNotification } from '../utils';
 import { ref, onMounted } from 'vue';
 
 const isLoading = ref(true);
@@ -9,14 +10,14 @@ const allData = ref([]);
 
 const fetchData = async () => {
     try {
-        const response = await fetch('/quiz.json');
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwURG2HkBRYPGwBxvfBpq8tkgSJBUapjxvvRjt3-1dwX1tujSzinRtxDchQ_X3lAdIN/exec');
         if (!response.ok) {
-            throw new Error('Failed to fetch quiz data');
+            toastNotification('Failed to fetch quiz data', "error", 2000);
         }
         const data = await response.json();
         allData.value = data;
     } catch (error) {
-        console.error('Error fetching quiz data:', error);
+        toastNotification(error.message, "error", 2000);
     } finally {
         isLoading.value = false;
     }

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 import { useRouter } from 'vue-router'
+import { usePointStore } from '../stores/point.js';
 import TheHeader from '../components/TheHeader.vue';
 import TheLoading from '../components/TheLoading.vue';
 import { toastNotification } from '../utils/index.js';
@@ -15,13 +16,13 @@ const currentQuestionId = ref(1);
 const timeCounter = ref(timePerQuestion);
 const showAnswer = ref(false);
 const selectedAnswerIndex = ref(null);
-const pointCounter = ref(0);
+const pointStore = usePointStore();
 
 let timer = null;
 
 const fetchData = async () => {
     try {
-        const response = await fetch('/quiz.json');
+        const response = await fetch('https://script.google.com/macros/s/AKfycbwURG2HkBRYPGwBxvfBpq8tkgSJBUapjxvvRjt3-1dwX1tujSzinRtxDchQ_X3lAdIN/exec');
         if (!response.ok) {
             toastNotification('Failed to fetch quiz data', 'error', 2000);
         }
@@ -100,7 +101,7 @@ watch(currentQuestionId, () => {
 watch(showAnswer, () => {
     if (showAnswer.value) {
         if (selectedAnswerIndex.value === allData.value[currentQuestionId.value - 1]?.correctAnswer) {
-            pointCounter.value++;
+            pointStore.increment();
             toastNotification('Correct answer', 'success', 2000);
         }
         else {
@@ -151,7 +152,7 @@ const checkAnswer = () => {
                     </div>
                 </div>
                 <div class="flex justify-between mt-6">
-                    <div class="font-bold text-2xl">Point: {{ pointCounter }}</div>
+                    <div class="font-bold text-2xl">Point: {{ pointStore.point }}</div>
                     <button class="btn btn-accent btn-md" @click="checkAnswer">Check</button>
                     <div>
                         <button @click="previousQuestion" class="btn btn-md btn-neutral mr-2"
